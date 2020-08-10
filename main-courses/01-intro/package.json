@@ -12,5 +12,8 @@
     "parcel": "^1.12.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "dependencies": {
+    "@frontendmasters/pet": "^1.0.3"
   }
 }
