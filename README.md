@@ -1,5 +1,7 @@
 # React.js 
 
+![](https://www.traininginstitutepune.in/wp-content/uploads/2019/10/react-js-banner.png)
+
 ## What is React.js?
 React is a JavaScript Library for building User Interfaces.
 
