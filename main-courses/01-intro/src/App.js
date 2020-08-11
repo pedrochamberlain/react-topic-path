@@ -5,11 +5,13 @@ import SearchParams from './SearchParams'
 
 const App = () => {
     return (
-        <div>
-            <h1 id='something-important'>Adopt Me!</h1>
-            <SearchParams />
-        </div>
+        <React.StrictMode>
+            <div>
+                <h1 id='something-important'>Adopt Me!</h1>
+                <SearchParams />
+            </div>
+        </React.StrictMode>
     )
 }
 
-render(React.createElement(App), document.getElementById('root'))
+render(<App />, document.getElementById('root'))
