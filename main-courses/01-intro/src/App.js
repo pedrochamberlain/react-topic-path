@@ -2,8 +2,8 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router, Link } from '@reach/router'
 
-import SearchParams from './components/SearchParams'
-import Details from './components/Details'
+import SearchParams from './pages/SearchParams'
+import Details from './pages/Details'
 
 const App = () => {
     return (
