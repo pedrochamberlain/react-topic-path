@@ -6,4 +6,5 @@ Learn to build real-world applications using modern React! Much more than an int
 - [Course Repository](https://github.com/btholt/complete-intro-to-react-v5)
 - [React.js - Introducing JSX](https://reactjs.org/docs/introducing-jsx.html)
 - [React.js - Introducing Hooks](https://reactjs.org/docs/hooks-intro.html)
+    - [Hooks API Reference](https://reactjs.org/docs/hooks-reference.html#useeffect)
 - [Parcel - Web Application Bundler](https://parceljs.org/)
