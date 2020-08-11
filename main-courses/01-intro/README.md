@@ -9,5 +9,6 @@ Learn to build real-world applications using modern React! Much more than an int
     - [React Lifecycle Methods - A Deep Dive](https://programmingwithmosh.com/javascript/react-lifecycle-methods/)
 - [React.js - Introducing Hooks](https://reactjs.org/docs/hooks-intro.html)
     - [Hooks API Reference](https://reactjs.org/docs/hooks-reference.html#useeffect)
+- [React.js - Portals](https://reactjs.org/docs/portals.html)
 - [React.js - Error Boundaries](https://reactjs.org/docs/error-boundaries.html)
 - [Parcel - Web Application Bundler](https://parceljs.org/)
