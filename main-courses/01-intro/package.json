@@ -15,5 +15,8 @@
   },
   "dependencies": {
     "@frontendmasters/pet": "^1.0.3"
-  }
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
 }
