@@ -12,3 +12,4 @@ Learn to build real-world applications using modern React! Much more than an int
 - [React.js - Portals](https://reactjs.org/docs/portals.html)
 - [React.js - Error Boundaries](https://reactjs.org/docs/error-boundaries.html)
 - [Parcel - Web Application Bundler](https://parceljs.org/)
+- [Preact.js](https://preactjs.com/)
