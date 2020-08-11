@@ -12,6 +12,7 @@ class Carousel extends React.Component {
         this.handleIndexClick = this.handleIndexClick.bind(this)
     }
 
+    // This is a lifecycle function. This method is invoked right before the render method.
     static getDerivedStateFromProps({ media }) {
         let photos = ['http://placecorgi.com/600/600']
 
