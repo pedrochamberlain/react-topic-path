@@ -11,5 +11,6 @@ Learn to build real-world applications using modern React! Much more than an int
     - [Hooks API Reference](https://reactjs.org/docs/hooks-reference.html#useeffect)
 - [React.js - Portals](https://reactjs.org/docs/portals.html)
 - [React.js - Error Boundaries](https://reactjs.org/docs/error-boundaries.html)
+- [Reach Router](https://reach.tech/router/)
 - [Parcel - Web Application Bundler](https://parceljs.org/)
 - [Preact.js](https://preactjs.com/)
