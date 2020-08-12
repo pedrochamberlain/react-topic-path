@@ -17,3 +17,6 @@ Learn to build scalable React applications using the latest tools and techniques
     - [Memo & Callback](https://www.digitalocean.com/community/tutorials/react-usememo)
 - Emotion (CSS in JS)
     - [Emotion.js Docs](https://emotion.sh/docs/introduction)
+- Code Splitting
+    - [React.js - Code Splitting](https://reactjs.org/docs/code-splitting.html)
+    - [Code Splitting with React Suspense](https://www.digitalocean.com/community/tutorials/react-code-splitting-with-react-suspense)
