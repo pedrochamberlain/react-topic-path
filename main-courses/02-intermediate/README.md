@@ -22,3 +22,5 @@ Learn to build scalable React applications using the latest tools and techniques
     - [Code Splitting with React Suspense](https://www.digitalocean.com/community/tutorials/react-code-splitting-with-react-suspense)
 - Server Side Rendering
     - [How to Enable Server-Side Rendering for a React App](https://www.digitalocean.com/community/tutorials/react-server-side-rendering)
+- Tests
+    - [Testing React Applications Course, v2](https://frontendmasters.com/courses/testing-react/)
