@@ -32921,27 +32921,43 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _router = require("@reach/router");
 
 var _core = require("@emotion/core");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+const spin = (0, _core.keyframes)`
+    to {
+        transform: rotate(360deg)
+    }
+`;
 var _ref = {
-  name: "j17m6f-NavBar",
-  styles: "background-color:#333;padding:15px;;label:NavBar;"
+  name: "c47rri-NavBar",
+  styles: "margin-bottom:1.2rem;;label:NavBar;"
 };
 
-const NavBar = () => (0, _core.jsx)("header", {
-  css: _ref
-}, (0, _core.jsx)(_router.Link, {
-  to: "/"
-}, "Adopt Me!"), (0, _core.jsx)("span", {
-  role: "img",
-  "aria-label": "logo"
-}, "\uD83D\uDC31"));
+const NavBar = () => {
+  const [emojiSize, setEmojiSize] = (0, _react.useState)(60);
+  const [speed, setSpeed] = (0, _react.useState)(1);
+  const [backgroundColor, setBackgroundColor] = (0, _react.useState)();
+  return (0, _core.jsx)("header", null, (0, _core.jsx)(_router.Link, {
+    to: "/",
+    css: _ref
+  }, "Adopt Me!"), (0, _core.jsx)("span", {
+    role: "img",
+    "aria-label": "logo",
+    onClick: () => {
+      setEmojiSize(emojiSize + 15);
+      setSpeed(speed * 0.9);
+    },
+    css: /*#__PURE__*/(0, _core.css)("font-size:", emojiSize, "px;&:hover{animation:", speed, "s ", spin, " linear infinite;};label:NavBar;")
+  }, "\uD83D\uDC31"));
+};
 
 var _default = NavBar;
 exports.default = _default;
@@ -35152,7 +35168,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51669" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63046" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
