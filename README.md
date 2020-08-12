@@ -18,6 +18,10 @@ According to [reactjs.org](reactjs.org):
 >
 >Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.
 
+## Roadmap
+
+[![](https://roadmap.sh/roadmaps/react.png)](https://roadmap.sh/react)
+
 ## Links
 - [React.js Official Site](https://reactjs.org/)
 - [Frontend Masters - React.js Learning Path](https://frontendmasters.com/learn/react/)
