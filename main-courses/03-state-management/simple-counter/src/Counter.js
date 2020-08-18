@@ -6,6 +6,10 @@ const getStateFromLocalStorage = () => {
     return { count: 0 }
 }
 
+const updatePageTitle = (newTitle) => {
+    document.title = newTitle
+}
+
 class Counter extends React.Component {
     constructor(props) {
         super(props)
@@ -23,15 +27,24 @@ class Counter extends React.Component {
             return { count: state.count + props.step }
         }, () => {
             localStorage.setItem('counterState', JSON.stringify(this.state))
+            updatePageTitle(':)')
         })
     }
 
     decrement() {
-        this.setState({ count: this.state.count - 1 })
+        this.setState(() => {
+            return { count: this.state.count - 1 }
+        }, () => {
+            updatePageTitle(':(')
+        })
     }
 
     reset() {
-        this.setState({ count: 0 })
+        this.setState(() => {
+            return { count: 0 }
+        }, () => {
+            updatePageTitle(':|')
+        })
     }
 
     render() {
