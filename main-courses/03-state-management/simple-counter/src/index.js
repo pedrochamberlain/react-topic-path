@@ -10,7 +10,7 @@ const Application = () => {
         <React.StrictMode>
             <main className="Application">
                 <section className="Counters">
-                    <Counter />
+                    <Counter max={15} step={5} />
                 </section>
             </main>
         </React.StrictMode>

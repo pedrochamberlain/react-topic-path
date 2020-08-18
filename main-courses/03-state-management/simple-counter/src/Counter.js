@@ -14,7 +14,12 @@ class Counter extends React.Component {
     }
 
     increment() {
-        this.setState({ count: this.state.count + 1 })
+        this.setState((state, props) => {
+            if (state.count >= props.max) return
+            return { count: state.count + props.step }
+        }, () => {
+            console.log('State was updated to ', this.state)
+        })
     }
 
     decrement() {
@@ -30,7 +35,7 @@ class Counter extends React.Component {
 
         return (
             <main className="Counter">
-                <p className="count">{this.state.count}</p>
+                <p className="count">{count}</p>
                 <section className="controls">
                     <button onClick={this.increment}>Increment</button>
                     <button onClick={this.decrement}>Decrement</button>
