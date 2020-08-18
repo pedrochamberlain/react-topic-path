@@ -1,66 +1,40 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
-const getStateFromLocalStorage = () => {
+const getCountFromLocalStorage = () => {
     const storage = localStorage.getItem('counterState')
-    if (storage) return JSON.parse(storage)
-    return { count: 0 }
+    if (storage) return JSON.parse(storage).count
+    return 0
 }
 
-const updatePageTitle = (newTitle) => {
-    document.title = newTitle
+const storeStateInLocalStorage = (count) => {
+    localStorage.setItem('counterState', JSON.stringify(count))
 }
 
-class Counter extends React.Component {
-    constructor(props) {
-        super(props)
+const Counter = ({ max, step }) => {
+    const [count, setCount] = useState(getCountFromLocalStorage)
 
-        this.state = getStateFromLocalStorage()
+    const increment = () => setCount(() => {
+        if (count > max) return count
+        return count + step
+    })
+    const decrement = () => setCount(count - step)
+    const reset = () => setCount(0)
 
-        this.increment = this.increment.bind(this)
-        this.decrement = this.decrement.bind(this)
-        this.reset = this.reset.bind(this)
-    }
+    useEffect(() => {
+        document.title = `Counter: ${count}`
+        storeStateInLocalStorage({ count })
+    }, [count])
 
-    increment() {
-        this.setState((state, props) => {
-            if (state.count >= props.max) return
-            return { count: state.count + props.step }
-        }, () => {
-            localStorage.setItem('counterState', JSON.stringify(this.state))
-            updatePageTitle(':)')
-        })
-    }
-
-    decrement() {
-        this.setState(() => {
-            return { count: this.state.count - 1 }
-        }, () => {
-            updatePageTitle(':(')
-        })
-    }
-
-    reset() {
-        this.setState(() => {
-            return { count: 0 }
-        }, () => {
-            updatePageTitle(':|')
-        })
-    }
-
-    render() {
-        const { count } = this.state
-
-        return (
-            <main className="Counter">
-                <p className="count">{count}</p>
-                <section className="controls">
-                    <button onClick={this.increment}>Increment</button>
-                    <button onClick={this.decrement}>Decrement</button>
-                    <button onClick={this.reset}>Reset</button>
-                </section>
-            </main>
-        );
-    }
+    return (
+        <main className="Counter">
+            <p className="count">{count}</p>
+            <section className="controls">
+                <button onClick={increment}>Increment</button>
+                <button onClick={decrement}>Decrement</button>
+                <button onClick={reset}>Reset</button>
+            </section>
+        </main>
+    )
 }
 
 export default Counter
