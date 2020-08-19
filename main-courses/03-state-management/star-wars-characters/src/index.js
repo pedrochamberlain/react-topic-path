@@ -9,17 +9,33 @@ import endpoint from './endpoint'
 
 import './styles.scss';
 
-const Application = () => {
-  const [characters, setCharacters] = useState([]);
+const useFetch = url => {
+  const [response, setResponse] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetch(endpoint + '/characters')
+    setLoading(true)
+    setResponse(null)
+    setError(null)
+
+    fetch(url)
       .then(response => response.json())
       .then(response => {
-        setCharacters(response.characters)
+        setResponse(response)
       })
-      .catch(console.error)
+      .catch(error => {
+        setLoading(false)
+        setError(error)
+      })
   }, [])
+
+  return [response, loading, error]
+}
+
+const Application = () => {
+  const [response, loading, error] = useFetch(endpoint + '/characters')
+  const characters = (response && response.characters) || []
 
   return (
     <div className="Application">
@@ -28,7 +44,12 @@ const Application = () => {
       </header>
       <main>
         <section className="sidebar">
-          <CharacterList characters={characters} />
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+              <CharacterList characters={characters} />
+            )}
+          {error && <p className='error'>{error.message}</p>}
         </section>
       </main>
     </div>
