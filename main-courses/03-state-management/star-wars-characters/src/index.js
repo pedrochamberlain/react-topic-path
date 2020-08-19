@@ -1,41 +1,85 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import CharacterList from './CharacterList';
 
-import endpoint from './endpoint'
-
 import './styles.scss';
+import endpoint from './endpoint';
+
+const initialState = {
+  result: null,
+  loading: true,
+  error: null,
+};
+
+const fetchReducer = (state, action) => {
+  if (action.type === 'LOADING') {
+    return {
+      result: null,
+      loading: true,
+      error: null,
+    };
+  }
+
+  if (action.type === 'RESPONSE_COMPLETE') {
+    return {
+      result: action.payload.response,
+      loading: false,
+      error: null,
+    };
+  }
+
+  if (action.type === 'ERROR') {
+    return {
+      result: null,
+      loading: false,
+      error: action.payload.error,
+    };
+  }
+
+  return state;
+};
 
 const useFetch = url => {
-  const [response, setResponse] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [state, dispatch] = React.useReducer(fetchReducer, initialState);
 
-  useEffect(() => {
-    setLoading(true)
-    setResponse(null)
-    setError(null)
+  React.useEffect(() => {
+    dispatch({ type: 'LOADING' });
 
-    fetch(url)
-      .then(response => response.json())
-      .then(response => {
-        setResponse(response)
-      })
-      .catch(error => {
-        setLoading(false)
-        setError(error)
-      })
-  }, [])
+    const fetchUrl = async () => {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        dispatch({ type: 'RESPONSE_COMPLETE', payload: { response: data } });
+      } catch (error) {
+        dispatch({ type: 'ERROR', payload: { error } });
+      }
+    };
 
-  return [response, loading, error]
-}
+    fetchUrl();
+
+    // fetch(endpoint + '/characters')
+    //   .then(response => response.json())
+    //   .then(response => {
+    //     setLoading(false);
+    //     setResponse(response);
+    //   })
+    //   .catch(error => {
+    //     setLoading(false);
+    //     setError(error);
+    //   });
+
+    // eslint-disable-next-line
+  }, []);
+
+  return [state.result, state.loading, state.error];
+};
 
 const Application = () => {
-  const [response, loading, error] = useFetch(endpoint + '/characters')
-  const characters = (response && response.characters) || []
+  const [response, loading, error] = useFetch(endpoint + '/characters');
+  const characters = (response && response.characters) || [];
 
   return (
     <div className="Application">
@@ -45,11 +89,11 @@ const Application = () => {
       <main>
         <section className="sidebar">
           {loading ? (
-            <p>Loading...</p>
+            <p>Loading…</p>
           ) : (
               <CharacterList characters={characters} />
             )}
-          {error && <p className='error'>{error.message}</p>}
+          {error && <p className="error">{error.message}</p>}
         </section>
       </main>
     </div>
