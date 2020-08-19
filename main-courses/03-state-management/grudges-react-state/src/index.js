@@ -1,10 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import Application from './Application';
+import Application from './Application'
 
-import './style.scss';
+import './style.scss'
+import { GrudgeProvider } from './GrudgeContext'
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById('root')
 
-ReactDOM.render(<Application />, rootElement);
+ReactDOM.render(
+    <GrudgeProvider>
+        <Application />
+    </GrudgeProvider>,
+    rootElement
+)
