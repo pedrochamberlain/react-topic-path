@@ -7,3 +7,10 @@ As your applications grow, the root of performance and maintainability problems 
 - [Course Slides](https://speakerdeck.com/stevekinney/react-state)
 - [Course Repository](https://github.com/FrontendMasters/pure-react-state-management)
 - [State Management with Redux & MobX Course](https://frontendmasters.com/courses/redux-mobx/)
+- Content
+    - [setState](https://css-tricks.com/understanding-react-setstate/)
+    - [React Hooks](https://css-tricks.com/intro-to-react-hooks/)
+    - [Reducers](https://css-tricks.com/understanding-the-almighty-reducer/)
+    - [Context](https://css-tricks.com/digging-into-react-context/)
+    - [Data Fetching](https://css-tricks.com/using-data-in-react-with-the-fetch-api-and-axios/)
+- [Collection of React Hooks](https://nikgraf.github.io/react-hooks/)
