@@ -2,7 +2,7 @@
 
 In this course, you’ll learn best practices for structuring your data and how to keep your application fast and nimble as your codebase grows. You’ll get your hands on multiple solutions for managing state in large React applications including Redux, Redux Thunk, Redux Observables and MobX.
 
-## Pure & Impure functions
+## A Brief Recap on Pure & Impure functions
 *Pure functions* take arguments and return values based on those arguments.
 
 ```zsh
