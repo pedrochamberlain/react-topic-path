@@ -17,25 +17,29 @@ const incrementValue = () => ({
 })
 
 const reducer = (state = initialState, action) => {
-  switch (action) {
+  switch (action.type) {
     case INCREMENT:
       return {
         count: state.count + 1
       }
-  }
 
-  return state
+    default:
+      return state
+  }
 }
 
 const store = createStore(reducer)
 
 class Counter extends Component {
   render() {
+    const { count, increment } = this.props
+    console.log(count, increment)
+
     return (
       <main className="Counter">
-        <p className="count">0</p>
+        <p className="count">{count}</p>
         <section className="controls">
-          <button>Increment</button>
+          <button onClick={increment}>Increment</button>
           <button>Decrement</button>
           <button>Reset</button>
         </section>
@@ -44,4 +48,18 @@ class Counter extends Component {
   }
 }
 
-render(<Counter />, document.getElementById('root'))
+const mapStateToProps = (state) => { return state }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    increment() { dispatch(incrementValue()) }
+  }
+}
+
+const CounterContainer = connect(mapStateToProps, mapDispatchToProps)(Counter)
+
+render(
+  <Provider store={store}>
+    <CounterContainer />
+  </Provider>,
+  document.getElementById('root'))
