@@ -1,7 +1,33 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React, { Component } from 'react'
+import { render } from 'react-dom'
 
-import './styles.scss';
+import { createStore } from 'redux'
+import { connect, Provider } from 'react-redux'
+
+import './styles.scss'
+
+const initialState = {
+  count: 0
+}
+
+const INCREMENT = 'INCREMENT'
+
+const incrementValue = () => ({
+  type: INCREMENT,
+})
+
+const reducer = (state = initialState, action) => {
+  switch (action) {
+    case INCREMENT:
+      return {
+        count: state.count + 1
+      }
+  }
+
+  return state
+}
+
+const store = createStore(reducer)
 
 class Counter extends Component {
   render() {
@@ -14,8 +40,8 @@ class Counter extends Component {
           <button>Reset</button>
         </section>
       </main>
-    );
+    )
   }
 }
 
-render(<Counter />, document.getElementById('root'));
+render(<Counter />, document.getElementById('root'))
