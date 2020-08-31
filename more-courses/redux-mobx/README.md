@@ -222,3 +222,4 @@ makeLouderAndRepeatThreeTimesAndEmbolden('hi!')
 ## Links
 - [Course Slides](https://static.frontendmasters.com/resources/2019-05-28-react-state/redux-mobx.pdf)
 - [Redux Docs](https://redux.js.org/api/api-reference)
+- [Normalizr](https://github.com/paularmstrong/normalizr)
